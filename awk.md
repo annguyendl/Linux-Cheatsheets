@@ -1,5 +1,3 @@
-[TOC]
-
 # Basic `awk` usage:
 
 ### Syntax:
@@ -25,7 +23,7 @@ awk -F: '{print $1, $NF}' /etc/passwd
 | begin-pattern, end-pattern |                                               | A pair of patterns separated by a comma, specifying a range of records. The range includes both the initial record that matches begin-pattern, and the final record that matches begin-pattern. |
 | BEGIN<br />END             |                                               | Special patterns for you to supply start-up or clean-up actions for your `awk` program. |
 | *empty*                    |                                               | The empty pattern matches every input record.                |
-| /regexp/                   | `awk '/foo|bar|baz/  { printf $0}' input.txt` | A regular expression as a pattern. It matches when the text of the input record fits the regular expression. |
+| /regexp/                   | `awk '/foo\|bar\|baz/  { printf $0}' input.txt` | A regular expression as a pattern. It matches when the text of the input record fits the regular expression. |
 
 
 
@@ -51,7 +49,7 @@ awk -F: '{print $1, $NF}' /etc/passwd
 | FNR               |                                                              | `F`ile `N`umber of `R`ecords. Contains number of lines read, but is reset for each file read. |
 | OFMT              |                                                              | The default output format for numbers.<br/>*(default "%.6g")* |
 | CONVFMT           |                                                              | The CONVFMT variable is used to specify the format when converting a number to a string. (*Default: "%.6g"*) |
-| FILENAME          | `awk '/foo|bar|baz/  { printf $0}<br />END {print "filename=", FILENAME}' input.txt` | The name of the current input file. If no files are specified on the command line, the value of FILENAME is "-". However, FILENAME is undefined inside the BEGIN block (unless set by getline). |
+| FILENAME          | `awk '/foo\|bar\|baz/  { printf $0}<br />END {print "filename=", FILENAME}' input.txt` | The name of the current input file. If no files are specified on the command line, the value of FILENAME is "-". However, FILENAME is undefined inside the BEGIN block (unless set by getline). |
 | ARGC              |                                                              | Number or arguments                                          |
 | ARGV              |                                                              | Array of arguments                                           |
 | ARGIND            |                                                              | Argument Index                                               |
